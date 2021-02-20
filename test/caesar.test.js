@@ -13,9 +13,9 @@ describe("caesar()", () => {
     const actual = caesar("abcdef", 0);
     const actual2 = caesar("abcdef");
     const actual3 = caesar("abcdef", -50);
-    expect(actual).to.eql(expected);
-    expect(actual2).to.eql(expected);
-    expect(actual3).to.eql(expected);
+    expect(actual).to.be.false;
+    expect(actual2).to.be.false;
+    expect(actual3).to.be.false;
   });
 
   it("should leave spaces alone", () => {

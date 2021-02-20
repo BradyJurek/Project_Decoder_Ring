@@ -18,7 +18,7 @@ const polybiusModule = (function () {
       "h": 32,
       "(i/j)": 42,
       "k": 52,
-      "l": 13,
+      "l": 13, 
       "m": 23,
       "n": 33,
       "o": 43,
@@ -37,37 +37,48 @@ const polybiusModule = (function () {
     
     let result = "";
 
-    const lowerInput = input.toLowerCase()
-
     if (!input) {
-      return false
+      return false;
     }
+
     //ENCODING SECTION
     if (encode) {
-      for (let i = 0; i < lowerInput.length; i++) {
-        const letter = lowerInput[i];
+      for (let i = 0; i < input.length; i++) {
+        const letter = input[i].toLowerCase();
 
         if (letter === "i" || letter === "j") {
-          result += 42
+          result += 42;
         } else if (letter === ' ') {
-          result += ' '
+          result += ' ';
         } else {
           const pairs = Object.entries(alphabet).find(pair => letter === pair[0]);
-          result += pairs[1]
+          result += pairs[1];
         }
       }
     }
+    
     //DECODING SECTION
     if (!encode) {
-      if (input.length % 2 == 0){
-        for (let i = 0; i < input.length; i++) {
+      const checkLength = input.split(/\s/).join('')
 
-        }
-      } else {
-        return false;
+      if (checkLength.length % 2 !== 0){
+        return false
       }
-    }
 
+        for (let i = 0; i < checkLength.length; i+= 2) {
+          const firstIndex = input[i];
+          const secondIndex = input[i + 1];
+          const combinedIndex = firstIndex + secondIndex;
+
+          if (firstIndex === " ") {
+            result += " ";
+            i-= 1
+            continue;
+          } else {
+            result += Object.keys(alphabet).find(key => alphabet[key] == combinedIndex)
+          }
+        }
+    }
     return result
   }
 
