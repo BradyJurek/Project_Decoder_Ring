@@ -7,9 +7,7 @@ const caesarModule = (function () {
   function caesar(input, shift, encode = true) {
 
     //returns false if any of these statements are false
-    if (!shift || shift < -25 || shift > 25 || shift === 0 || !input) {
-      return false;
-    }
+    if (!shift || shift < -25 || shift > 25 || shift === 0 || !input) return false
 
     //gives each letter a index value in a array
     const alphabet = "abcdefghijklmnopqrstuvwxyz".split("")

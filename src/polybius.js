@@ -37,9 +37,7 @@ const polybiusModule = (function () {
     
     let result = "";
 
-    if (!input) {
-      return false;
-    }
+    if (!input) return false
 
     //ENCODING SECTION
     if (encode) {
@@ -61,9 +59,7 @@ const polybiusModule = (function () {
     if (!encode) {
       const checkLength = input.split(/\s/).join('')
 
-      if (checkLength.length % 2 !== 0){
-        return false
-      }
+      if (checkLength.length % 2 !== 0) return false
 
         for (let i = 0; i < checkLength.length; i+= 2) {
           const firstIndex = input[i];

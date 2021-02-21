@@ -28,4 +28,19 @@ describe("caesar()", () => {
     const actual = caesar("BPQA qa I amkzmb umaaiom!", 8, false);
     expect(actual).to.eql(expected);
 });
+it("should ignore capital letters and other special characters", () => {
+  const expected = 'this is a secret message!!';
+  const actual = caesar("BPQA qa I amkzmb umaaiom!!", 8, false);
+  expect(actual).to.eql(expected);
+});
+
+it("should handle shifts that go past the end of the alphabet.", () => {
+  const expected = 'cbc';
+  const actual = caesar("zyz", 3);
+
+  const expected1 = 'xyz';
+  const actual1 = caesar("abc", -3);
+  expect(actual).to.eql(expected);
+  expect(actual1).to.eql(expected1);
+});
 });
